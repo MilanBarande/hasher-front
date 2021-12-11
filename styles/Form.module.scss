@@ -1,40 +1,99 @@
+@keyframes noise-anim {
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(calc(1 / $steps)))}{
+      clip:rect(random(100)+px,9999px,random(100)+px,0);
+    }
+  }
+}
+
+@keyframes noise-anim-2 {
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(calc(1 / $steps)))}{
+      clip:rect(random(100)+px,9999px,random(100)+px,0);
+    }
+  }
+}
+
 .hasherCard {
   border: 1px solid black;
-  width: 600px;
+  width: 800px;
   background-color: #17191a;
   margin: 0 auto;
   box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
-  padding: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px
 }
 
 .hasherHeader {
-  text-align: center;
   padding: 8px;
-  font-size: 14px;
   font-weight: 700;
-  color: #f7f2f2;
-  border-bottom: 1px solid black;
+  color: white;
+  font-size: 30px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 285px;
+
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -1px 0 red;
+    top: 0;
+    color: white;
+    background: transparent;
+    overflow: hidden;
+    clip: rect(0,900px,0,0); 
+    animation: noise-anim 2s infinite linear alternate-reverse;
+  }
+
+  &:before {
+    content:attr(data-text);
+    position:absolute;
+    left:-2px;
+    text-shadow:1px 0 blue; 
+    top:0;
+    color:white;
+    background:transparent;
+    overflow:hidden;
+    clip:rect(0,900px,0,0); 
+    animation:noise-anim-2 3s infinite linear alternate-reverse;
+  }
 }
 
 .hasherForm {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  width: 100%;
 }
 
 .hasherSubmit{
   margin-top: 5px;
-  align-self: flex-center;
   background-color: #2d3032;
+  width: 45%;
+  align-self: center;
 }
 
 .hasherInput {
-  align-self: flex-center;
   background-color: #2d3032;
+  width: 45%;
+  align-self: center;
+  margin-bottom: 10px;
 }
 
 .result {
   text-align: center;
+}
+
+.resultText {
+  margin-bottom: 30px;
 }
 
 .imageContainer {

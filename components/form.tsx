@@ -19,24 +19,37 @@ const Form = () => {
   const handleChange = (event: FormEvent<HTMLInputElement>) =>
     setValue(event.currentTarget.value)
 
+  const [isCopySuccessful, setIsCopySuccesful] = useState(false);
+
+  function updateClipboard(newClip: string) {
+    navigator.clipboard.writeText(newClip).then(function () {
+      setIsCopySuccesful(true)
+    }, function () {
+      setIsCopySuccesful(false)
+    });
+  }
 
   return (
     <div className={styles.hasherCard}>
-      <div className={styles.hasherHeader}>
-        Archive level 9 Hash
-      </div>
-      <form onSubmit={handleSubmit} className={styles.hasherForm} >
+      <h1 className={`${styles.hasherHeader} glitch`} data-text="Archive level 9 Hash" />
+      <form onSubmit={handleSubmit} className={styles.hasherForm}>
         <input
           className={styles.hasherInput}
           placeholder="Input"
           type="text"
           onChange={handleChange}
         />
-        <button type="submit" value="Hash" className={styles.hasherSubmit}>Submit</button>
+        <button type="submit" className={styles.hasherSubmit}>Hash</button>
       </form>
-      {result ? <p className={styles.result}>{result}</p> : null}
-      <div className={styles.imageContainer}>
-        <Image className={styles.image} src="/hash.png" alt="Hash image" width={450} height={180} /></div>
+      {result ?
+        <div className={styles.result}>
+          <p className={styles.resultText}>{`I hope for you that you are sure about your input... if so, I don't need to explain you where to type: !submit_hash ${result}`}</p>
+          <button className={styles.hasherSubmit} onClick={() => updateClipboard(`!submit_hash ${result}`)}>{isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
+        </div> :
+        <p className={styles.result}>
+          Your input ? Some characters, a hashtag and some numbers... you got it ?
+        </p>
+      }
     </div>
   )
 }
