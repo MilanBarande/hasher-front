@@ -12,7 +12,7 @@ const Form = () => {
     fetch(API_ENDPOINT, {
       method: 'POST',
       body: JSON.stringify({ hashed_input: value }),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', mode: 'cors' },
     }).then(res => res.json()).then(json => console.log('json result', json))
   }
 
@@ -30,7 +30,6 @@ const Form = () => {
           className={styles.hasherInput}
           placeholder="Input"
           type="text"
-          name="num"
           onChange={handleChange}
         />
         <button type="submit" value="Hash" className={styles.hasherSubmit}>Submit</button>
