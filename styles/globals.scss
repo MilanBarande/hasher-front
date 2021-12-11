@@ -14,3 +14,44 @@ a {
 * {
   box-sizing: border-box;
 }
+
+*:focus {
+  outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #494f52;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    color: #f7f2f2;
+}
+
+img {
+    max-width:450px;
+    max-height:450px;
+    display: block;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+input, button {
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  background-image:none;
+  background-color: #dadad3;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 5px;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 500;
+}
