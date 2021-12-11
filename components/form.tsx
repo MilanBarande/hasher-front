@@ -44,7 +44,7 @@ const Form = () => {
       {result ?
         <div className={styles.result}>
           <p className={styles.resultText}>{`I hope for you that you are sure about your input... if so, I don't need to explain you where to type: !submit_hash ${result}`}</p>
-          <button className={styles.hasherSubmit} onClick={() => updateClipboard(`!submit_hash ${result}`)}>{isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
+          <button className={styles.copyToClipboard} onClick={() => updateClipboard(`!submit_hash ${result}`)}>{isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
         </div> :
         <p className={styles.result}>
           Your input ? Some characters, a hashtag and some numbers... you got it ?
