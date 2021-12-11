@@ -1,9 +1,10 @@
 .hasherCard {
   border: 1px solid black;
-  max-width: 800px;
+  width: 600px;
   background-color: #17191a;
   margin: 0 auto;
   box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+  padding: 15px;
 }
 
 .hasherHeader {
@@ -16,7 +17,6 @@
 }
 
 .hasherForm {
-  padding: 20px;
   display: flex;
   flex-direction: column;
 
@@ -26,10 +26,19 @@
   margin-top: 5px;
   align-self: flex-center;
   background-color: #2d3032;
-  margin-bottom: 20px;
 }
 
 .hasherInput {
   align-self: flex-center;
   background-color: #2d3032;
+}
+
+.result {
+  text-align: center;
+}
+
+.imageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
