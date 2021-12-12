@@ -1,5 +1,5 @@
 @keyframes noise-anim {
-  $steps:20;
+  $steps: 20;
   @for $i from 0 through $steps{
     #{percentage($i*(calc(1 / $steps)))}{
       clip:rect(random(100)+px,9999px,random(100)+px,0);
@@ -8,7 +8,7 @@
 }
 
 @keyframes noise-anim-2 {
-  $steps:20;
+  $steps: 20;
   @for $i from 0 through $steps{
     #{percentage($i*(calc(1 / $steps)))}{
       clip:rect(random(100)+px,9999px,random(100)+px,0);
@@ -21,22 +21,25 @@
   width: 800px;
   background-color: #17191a;
   margin: 0 auto;
-  box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+  box-shadow: -0.7rem 0.7rem 0 rgba(29, 30, 28, 0.26);
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 400px
+  height: 400px;
+  color: white;
+  border-radius: 2px;
 }
 
-.hasherHeader {
-  padding: 8px;
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 9px;
+}
+
+.title {
   font-weight: 700;
-  color: white;
   font-size: 30px;
   position: relative;
-  margin: 0 auto;
-  margin-bottom: 40px;
+  margin-top: 30px;
   width: 285px;
 
   &:after {
@@ -45,7 +48,6 @@
     left: 2px;
     text-shadow: -1px 0 red;
     top: 0;
-    color: white;
     background: transparent;
     overflow: hidden;
     clip: rect(0,900px,0,0); 
@@ -53,25 +55,25 @@
   }
 
   &:before {
-    content:attr(data-text);
-    position:absolute;
-    left:-2px;
-    text-shadow:1px 0 blue; 
-    top:0;
-    color:white;
-    background:transparent;
-    overflow:hidden;
-    clip:rect(0,900px,0,0); 
-    animation:noise-anim-2 3s infinite linear alternate-reverse;
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 1px 0 blue; 
+    top: 0;
+    background: transparent;
+    overflow: hidden;
+    clip: rect(0,900px,0,0); 
+    animation: noise-anim-2 5s infinite linear alternate-reverse;
   }
 }
 
 .hasherForm {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  margin-top: 50px;
+  margin-left: 5px;
 }
 
 .hasherSubmit{
@@ -90,10 +92,11 @@
 
 .result {
   text-align: center;
+  margin-top: 30px;
+  margin-left: 5px;
 }
 
 .resultText {
-  margin-bottom: 30px;
 }
 
 .imageContainer {
@@ -106,6 +109,6 @@
   background-color: #2d3032;
   width: 45%;
   align-self: center;
-  margin-bottom: 10px;
+  margin-top: 10px;
   height: 35px;
 }
