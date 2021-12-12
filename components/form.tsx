@@ -6,20 +6,21 @@ const API_ENDPOINT = 'https://archive-lvl-9-s7ftrbvx6q-ez.a.run.app/hash';
 const Form = () => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCopySuccessful, setIsCopySuccesful] = useState(false);
+  const [isCopyInError, setIsCopyInError] = useState(false);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
+    setIsLoading(true);
     fetch(`${API_ENDPOINT}?input_user=${value}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', mode: 'cors' },
-    }).then(res => res.json()).then(json => setResult(json.hashed_input))
+    }).then(res => res.json()).then(json => { setResult(json.hashed_input); setIsLoading(false); })
   }
 
   const handleChange = (event: FormEvent<HTMLInputElement>) =>
     setValue(event.currentTarget.value)
-
-  const [isCopySuccessful, setIsCopySuccesful] = useState(false);
-  const [isCopyInError, setIsCopyInError] = useState(false);
 
   const updateClipboard = (newClip: string) => {
     navigator.clipboard.writeText(newClip).then(() => {
@@ -43,14 +44,16 @@ const Form = () => {
         />
         <button type="submit" className={styles.hasherSubmit}>Hash</button>
       </form>
-      {result ?
-        <div className={styles.result}>
-          <p className={styles.resultText}>{`I hope for you that you are sure about your input... if so, I don't need to explain you where to type: !submit_hash ${result}`}</p>
-          <button className={styles.copyToClipboard} onClick={handleCopyClick}>{isCopyInError ? 'Oops something went wront, gotta do it manually' : isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
-        </div> :
-        <p className={styles.result}>
-          Your input ? Some characters, a hashtag and some numbers... you got it ?
-        </p>
+      {
+        isLoading ? <div className={styles.spinnerContainer}><div className={styles.spinner}><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div> :
+          result ?
+            <div className={styles.result}>
+              <p>{`I hope for you that you are sure about your input... if so, I don't need to explain you where to type: !submit_hash ${result}`}</p>
+              <button className={styles.copyToClipboard} onClick={handleCopyClick}>{isCopyInError ? 'Oops something went wront, gotta do it manually' : isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
+            </div> :
+            <p className={styles.result}>
+              Your input ? Some characters, a hashtag and some numbers... you got it ?
+            </p>
       }
     </div>
   )
