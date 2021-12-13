@@ -34,7 +34,7 @@ const Form = () => {
 
   return (
     <div className={styles.hasherCard}>
-      <div className={styles.titleContainer}><h1 className={`${styles.title} glitch`} data-text="Archive level 9 Hash" /></div>
+      <div className={styles.titleContainer}><h1 className={`${styles.title} glitch`} data-text="Archive level 9 Hash" >Archive level 9 Hash</h1></div>
       <form onSubmit={handleSubmit} className={styles.hasherForm}>
         <input
           className={styles.hasherInput}
@@ -48,7 +48,8 @@ const Form = () => {
         isLoading ? <div className={styles.spinnerContainer}><div className={styles.spinner}><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div> :
           result ?
             <div className={styles.result}>
-              <p>{`I hope for you that you are sure about your input... if so, I don't need to explain you where to type: !submit_hash ${result}`}</p>
+              <p>I hope for you that you are sure about your input... if so, I don't need to explain you where to type:</p>
+              <div className={styles.commandContainer}><span className={styles.command}>{`!submit_hash ${result}`}</span></div>
               <button className={styles.copyToClipboard} onClick={handleCopyClick}>{isCopyInError ? 'Oops something went wront, gotta do it manually' : isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
             </div> :
             <p className={styles.result}>
