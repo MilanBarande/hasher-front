@@ -53,7 +53,7 @@ const Form = () => {
               <button className={styles.copyToClipboard} onClick={handleCopyClick}>{isCopyInError ? 'Oops something went wront, gotta do it manually' : isCopySuccessful ? 'Copied ✅' : 'Copy to clipboard'}</button>
             </div> :
             <p className={styles.result}>
-              Your input ? Some characters, a hashtag and some numbers... you got it ?
+              Your input? Some characters, a hashtag and some numbers... you got it?
             </p>
       }
     </div>
