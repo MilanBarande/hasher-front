@@ -2,7 +2,7 @@
   $steps: 20;
   @for $i from 0 through $steps{
     #{percentage($i*(calc(1 / $steps)))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
+      clip:rect(random(100)+px,9999px,random(500)+px,0);
     }
   }
 }
@@ -11,7 +11,7 @@
   $steps: 20;
   @for $i from 0 through $steps{
     #{percentage($i*(calc(1 / $steps)))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
+      clip:rect(random(100)+px,9999px,random(500)+px,0);
     }
   }
 }
@@ -97,7 +97,7 @@
 
 .result {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-left: 5px;
 }
 
