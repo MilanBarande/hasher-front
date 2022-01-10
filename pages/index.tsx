@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Archive level 9 hash</title>
+        <title>Archive level 8</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
