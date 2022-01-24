@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Archive level 8</title>
+        <title>Archive level 5</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

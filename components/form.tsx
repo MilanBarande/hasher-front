@@ -34,7 +34,7 @@ const Form = () => {
 
   return (
     <div className={styles.hasherCard}>
-      <div className={styles.titleContainer}><h1 className={`${styles.title} glitch`} data-text="Archive level 8" >Archive level 8</h1></div>
+      <div className={styles.titleContainer}><h1 className={`${styles.title} glitch`} data-text="Archive level 5" >Archive level 5</h1></div>
       <form onSubmit={handleSubmit} className={styles.hasherForm}>
         <input
           className={styles.hasherInput}
